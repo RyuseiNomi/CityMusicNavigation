@@ -14,6 +14,7 @@
 		8F72EBD72AE7DF0B007E2D99 /* CityMusicNavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBD62AE7DF0B007E2D99 /* CityMusicNavigatorTests.swift */; };
 		8F72EBE12AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE02AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift */; };
 		8F72EBE32AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */; };
+		8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		8F72EBDC2AE7DF0B007E2D99 /* CityMusicNavigatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityMusicNavigatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F72EBE02AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorUITests.swift; sourceTree = "<group>"; };
 		8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				8F72EBC52AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift */,
 				8F72EBC72AE7DF0A007E2D99 /* ContentView.swift */,
+				8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */,
 				8F72EBC92AE7DF0B007E2D99 /* Assets.xcassets */,
 				8F72EBCB2AE7DF0B007E2D99 /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				8F72EBC82AE7DF0A007E2D99 /* ContentView.swift in Sources */,
 				8F72EBC62AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift in Sources */,
+				8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,8 +426,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CityMusicNavigator/Preview Content\"";
+				DEVELOPMENT_TEAM = VRC3Z3Y9FB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -450,8 +456,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CityMusicNavigator/Preview Content\"";
+				DEVELOPMENT_TEAM = VRC3Z3Y9FB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

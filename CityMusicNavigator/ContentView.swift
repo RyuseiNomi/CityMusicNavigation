@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    
+    @ObservedObject var manager = LocationManager()
+    @State var trackingMode = MapUserTrackingMode.follow
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Map(
+            coordinateRegion: $manager.region,
+            showsUserLocation: true,
+            userTrackingMode: $trackingMode
+        ).edgesIgnoringSafeArea(.bottom)
     }
 }
 
