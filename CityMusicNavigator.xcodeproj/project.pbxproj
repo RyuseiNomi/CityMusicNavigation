@@ -15,6 +15,7 @@
 		8F72EBE12AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE02AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift */; };
 		8F72EBE32AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */; };
 		8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */; };
+		8FECBBCC2AE80EB90042BB32 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECBBCB2AE80EB90042BB32 /* MusicModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		8F72EBE02AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorUITests.swift; sourceTree = "<group>"; };
 		8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
+		8FECBBCA2AE80E2B0042BB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8FECBBCB2AE80EB90042BB32 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 		8F72EBC42AE7DF0A007E2D99 /* CityMusicNavigator */ = {
 			isa = PBXGroup;
 			children = (
+				8FECBBCB2AE80EB90042BB32 /* MusicModels.swift */,
+				8FECBBCA2AE80E2B0042BB32 /* Info.plist */,
 				8F72EBC52AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift */,
 				8F72EBC72AE7DF0A007E2D99 /* ContentView.swift */,
 				8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */,
@@ -261,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F72EBC82AE7DF0A007E2D99 /* ContentView.swift in Sources */,
+				8FECBBCC2AE80EB90042BB32 /* MusicModels.swift in Sources */,
 				8F72EBC62AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift in Sources */,
 				8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */,
 			);
@@ -429,6 +435,7 @@
 				DEVELOPMENT_TEAM = VRC3Z3Y9FB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CityMusicNavigator/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -459,6 +466,7 @@
 				DEVELOPMENT_TEAM = VRC3Z3Y9FB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CityMusicNavigator/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

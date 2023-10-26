@@ -10,12 +10,13 @@ import MapKit
 
 struct ContentView: View {
     
-    @ObservedObject var manager = LocationManager()
+    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var musicManager = MusicManager()
     @State var trackingMode = MapUserTrackingMode.follow
     
     var body: some View {
         Map(
-            coordinateRegion: $manager.region,
+            coordinateRegion: $locationManager.region,
             showsUserLocation: true,
             userTrackingMode: $trackingMode
         ).edgesIgnoringSafeArea(.bottom)
