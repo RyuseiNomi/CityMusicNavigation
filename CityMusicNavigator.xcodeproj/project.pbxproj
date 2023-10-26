@@ -16,6 +16,8 @@
 		8F72EBE32AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */; };
 		8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */; };
 		8FECBBCC2AE80EB90042BB32 /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECBBCB2AE80EB90042BB32 /* MusicModels.swift */; };
+		8FECBBCE2AEA3AC80042BB32 /* GeoLocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */; };
+		8FECBBD02AEA8BF90042BB32 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECBBCF2AEA8BF90042BB32 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
 		8FECBBCA2AE80E2B0042BB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FECBBCB2AE80EB90042BB32 /* MusicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
+		8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationInteractor.swift; sourceTree = "<group>"; };
+		8FECBBCF2AEA8BF90042BB32 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */,
 				8F72EBC92AE7DF0B007E2D99 /* Assets.xcassets */,
 				8F72EBCB2AE7DF0B007E2D99 /* Preview Content */,
+				8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */,
+				8FECBBCF2AEA8BF90042BB32 /* AppState.swift */,
 			);
 			path = CityMusicNavigator;
 			sourceTree = "<group>";
@@ -268,7 +274,9 @@
 				8F72EBC82AE7DF0A007E2D99 /* ContentView.swift in Sources */,
 				8FECBBCC2AE80EB90042BB32 /* MusicModels.swift in Sources */,
 				8F72EBC62AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift in Sources */,
+				8FECBBD02AEA8BF90042BB32 /* AppState.swift in Sources */,
 				8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */,
+				8FECBBCE2AEA3AC80042BB32 /* GeoLocationInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
