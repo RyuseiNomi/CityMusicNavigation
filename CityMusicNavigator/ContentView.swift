@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import MediaPlayer
 
 struct ContentView: View {
     
@@ -15,11 +16,31 @@ struct ContentView: View {
     @State var trackingMode = MapUserTrackingMode.follow
     
     var body: some View {
-        Map(
-            coordinateRegion: $locationManager.region,
-            showsUserLocation: true,
-            userTrackingMode: $trackingMode
-        ).edgesIgnoringSafeArea(.bottom)
+        VStack {
+            Map(
+                coordinateRegion: $locationManager.region,
+                showsUserLocation: true,
+                userTrackingMode: $trackingMode
+            ).edgesIgnoringSafeArea(.bottom)
+            Grid {
+                GridRow {
+                    Button("▶️") {
+                        Task {
+                            let selectedMusics = MPMediaQuery.albums()
+                            $musicManager.musicPlayer.wrappedValue.setQueue(with: selectedMusics)
+                            $musicManager.musicPlayer.wrappedValue.play()
+                        }
+                    }
+                    Button("⏸️") {
+                        Task {
+                            $musicManager.musicPlayer.wrappedValue.stop()
+                        }
+                    }
+                    
+                }
+            }
+            .frame(maxWidth: .infinity)
+        }
     }
 }
 
