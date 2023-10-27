@@ -35,21 +35,45 @@ struct ContentView: View {
             .onChange(of: self.appState.locationObject.town) {
                 $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
             }
+            Button("アルバムを選択") {
+                Task {
+                    musicInteractor.fetchAlbums(appState: self.appState)
+                    self.appState.sheetObject.isShowAlbumSheet.toggle()
+                }
+            }
+            .sheet(isPresented: self.$appState.sheetObject.isShowAlbumSheet) {
+                AlbumPickView()
+                    .presentationContentInteraction(.scrolls)
+            }
             Grid {
                 GridRow {
-                    Button("▶️") {
+                    Button("前の曲") {
                         Task {
-                            let selectedMusics = MPMediaQuery.albums()
-                            $musicInteractor.musicPlayer.wrappedValue.setQueue(with: selectedMusics)
+                            $musicInteractor.musicPlayer.wrappedValue.skipToPreviousItem()
+                        }
+                    }
+                    Button("再生") {
+                        Task {
+                            let album = self.appState.musicObject.album
+                            $musicInteractor.musicPlayer.wrappedValue.setQueue(with: album)
                             $musicInteractor.musicPlayer.wrappedValue.play()
                         }
                     }
-                    Button("⏸️") {
+                    Button("一時停止") {
+                        Task {
+                            $musicInteractor.musicPlayer.wrappedValue.pause()
+                        }
+                    }
+                    Button("停止") {
                         Task {
                             $musicInteractor.musicPlayer.wrappedValue.stop()
                         }
                     }
-                    
+                    Button("次の曲") {
+                        Task {
+                            $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
+                        }
+                    }
                 }
             }
             .frame(maxWidth: .infinity)

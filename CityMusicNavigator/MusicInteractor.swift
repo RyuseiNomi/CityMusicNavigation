@@ -23,4 +23,12 @@ class MusicInteractor: NSObject, ObservableObject {
             }
         }
     }
+    
+    public func fetchAlbums(appState: AppState) {
+        let query = MPMediaQuery.albums()
+        query.groupingType = MPMediaGrouping.album
+        if let collections = query.collections {
+            appState.musicObject.albums = collections
+        }
+    }
 }

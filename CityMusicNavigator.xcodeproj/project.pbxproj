@@ -14,8 +14,9 @@
 		8F72EBD72AE7DF0B007E2D99 /* CityMusicNavigatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBD62AE7DF0B007E2D99 /* CityMusicNavigatorTests.swift */; };
 		8F72EBE12AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE02AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift */; };
 		8F72EBE32AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */; };
-		8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */; };
 		8FA2FF992AEBCA8D00C557EF /* MusicInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2FF982AEBCA8D00C557EF /* MusicInteractor.swift */; };
+		8FA2FF9D2AEBCB2B00C557EF /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2FF9C2AEBCB2B00C557EF /* LocationInteractor.swift */; };
+		8FA2FF9F2AECA6C100C557EF /* AlbumPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2FF9E2AECA6C100C557EF /* AlbumPickView.swift */; };
 		8FECBBCE2AEA3AC80042BB32 /* GeoLocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */; };
 		8FECBBD02AEA8BF90042BB32 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FECBBCF2AEA8BF90042BB32 /* AppState.swift */; };
 /* End PBXBuildFile section */
@@ -48,8 +49,9 @@
 		8F72EBDC2AE7DF0B007E2D99 /* CityMusicNavigatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityMusicNavigatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F72EBE02AE7DF0B007E2D99 /* CityMusicNavigatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorUITests.swift; sourceTree = "<group>"; };
 		8F72EBE22AE7DF0B007E2D99 /* CityMusicNavigatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
 		8FA2FF982AEBCA8D00C557EF /* MusicInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicInteractor.swift; sourceTree = "<group>"; };
+		8FA2FF9C2AEBCB2B00C557EF /* LocationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
+		8FA2FF9E2AECA6C100C557EF /* AlbumPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPickView.swift; sourceTree = "<group>"; };
 		8FECBBCA2AE80E2B0042BB32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationInteractor.swift; sourceTree = "<group>"; };
 		8FECBBCF2AEA8BF90042BB32 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -103,15 +105,16 @@
 		8F72EBC42AE7DF0A007E2D99 /* CityMusicNavigator */ = {
 			isa = PBXGroup;
 			children = (
+				8FA2FF9C2AEBCB2B00C557EF /* LocationInteractor.swift */,
 				8FA2FF982AEBCA8D00C557EF /* MusicInteractor.swift */,
 				8FECBBCA2AE80E2B0042BB32 /* Info.plist */,
 				8F72EBC52AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift */,
 				8F72EBC72AE7DF0A007E2D99 /* ContentView.swift */,
-				8F72EBEF2AE7E19F007E2D99 /* MapModels.swift */,
 				8F72EBC92AE7DF0B007E2D99 /* Assets.xcassets */,
 				8F72EBCB2AE7DF0B007E2D99 /* Preview Content */,
 				8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */,
 				8FECBBCF2AEA8BF90042BB32 /* AppState.swift */,
+				8FA2FF9E2AECA6C100C557EF /* AlbumPickView.swift */,
 			);
 			path = CityMusicNavigator;
 			sourceTree = "<group>";
@@ -272,11 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F72EBC82AE7DF0A007E2D99 /* ContentView.swift in Sources */,
+				8FA2FF9F2AECA6C100C557EF /* AlbumPickView.swift in Sources */,
 				8F72EBC62AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift in Sources */,
 				8FECBBD02AEA8BF90042BB32 /* AppState.swift in Sources */,
-				8F72EBF02AE7E19F007E2D99 /* MapModels.swift in Sources */,
 				8FA2FF992AEBCA8D00C557EF /* MusicInteractor.swift in Sources */,
 				8FECBBCE2AEA3AC80042BB32 /* GeoLocationInteractor.swift in Sources */,
+				8FA2FF9D2AEBCB2B00C557EF /* LocationInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import MediaPlayer
 
 class AppState: ObservableObject {
     
@@ -18,5 +19,16 @@ class AppState: ObservableObject {
         var town: String = ""
     }
     
+    struct MusicObject {
+        var album: MPMediaItemCollection = .init(items: [MPMediaItem()])
+        var albums: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
+    }
+    
+    struct SheetObject {
+        var isShowAlbumSheet: Bool = false
+    }
+    
     @Published public var locationObject = LocationObject()
+    @Published public var musicObject = MusicObject()
+    @Published public var sheetObject = SheetObject()
 }
