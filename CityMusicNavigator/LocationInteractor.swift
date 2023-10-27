@@ -8,7 +8,7 @@
 import MapKit
 import CoreLocation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+class LocationInteractor: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // FIXME: Publishing changes from within view updates is not allowed, this will cause undefined behavior.
     public var appState: AppState = AppState()
