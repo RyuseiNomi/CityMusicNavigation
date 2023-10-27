@@ -11,7 +11,7 @@ import MediaPlayer
 
 struct ContentView: View {
     
-    @ObservedObject var musicManager = MusicInteractor()
+    @ObservedObject var musicInteractor = MusicInteractor()
     @ObservedObject var manager = LocationInteractor()
     @State var trackingMode = MapUserTrackingMode.follow
     @EnvironmentObject public var appState: AppState
@@ -32,18 +32,21 @@ struct ContentView: View {
                 Text(self.appState.locationObject.city)
                 Text(self.appState.locationObject.town)
             }
+            .onChange(of: self.appState.locationObject.town) {
+                $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
+            }
             Grid {
                 GridRow {
                     Button("▶️") {
                         Task {
                             let selectedMusics = MPMediaQuery.albums()
-                            $musicManager.musicPlayer.wrappedValue.setQueue(with: selectedMusics)
-                            $musicManager.musicPlayer.wrappedValue.play()
+                            $musicInteractor.musicPlayer.wrappedValue.setQueue(with: selectedMusics)
+                            $musicInteractor.musicPlayer.wrappedValue.play()
                         }
                     }
                     Button("⏸️") {
                         Task {
-                            $musicManager.musicPlayer.wrappedValue.stop()
+                            $musicInteractor.musicPlayer.wrappedValue.stop()
                         }
                     }
                     
