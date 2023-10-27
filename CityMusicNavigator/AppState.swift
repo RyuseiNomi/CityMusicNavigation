@@ -18,10 +18,5 @@ class AppState: ObservableObject {
         var town: String = ""
     }
     
-    struct MapObject {
-        var region: MKCoordinateRegion = MKCoordinateRegion()
-    }
-    
     @Published public var locationObject = LocationObject()
-    @Published public var mapObject = MapObject()
 }

@@ -25,12 +25,12 @@ struct ContentView: View {
             ).edgesIgnoringSafeArea(.bottom)
             .onAppear() {
                 manager.setUp(appState: appState)
-                let geoLocationInteractor = GeoLocationInteractor(appState: self.appState)
-                geoLocationInteractor.getLocation()
             }
             HStack {
                 Text("現在地 : ")
                 Text(self.appState.locationObject.prefecture)
+                Text(self.appState.locationObject.city)
+                Text(self.appState.locationObject.town)
             }
             Grid {
                 GridRow {
