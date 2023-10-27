@@ -9,7 +9,7 @@ import SwiftUI
 import StoreKit
 import MediaPlayer
 
-class MusicManager: NSObject, ObservableObject {
+class MusicInteractor: NSObject, ObservableObject {
     
     @Published var musicPlayer = MPMusicPlayerApplicationController.applicationQueuePlayer
     

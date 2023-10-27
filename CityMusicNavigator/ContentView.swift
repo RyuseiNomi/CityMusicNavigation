@@ -11,7 +11,7 @@ import MediaPlayer
 
 struct ContentView: View {
     
-    @ObservedObject var musicManager = MusicManager()
+    @ObservedObject var musicManager = MusicInteractor()
     @ObservedObject var manager = LocationManager()
     @State var trackingMode = MapUserTrackingMode.follow
     @EnvironmentObject public var appState: AppState
