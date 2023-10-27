@@ -20,10 +20,8 @@ class GeoLocationInteractor {
     public func getLocation() {
         let address = CLGeocoder.init()
         address.reverseGeocodeLocation(CLLocation.init(latitude: self.appState.locationObject.latitude, longitude: self.appState.locationObject.longitude)) { (places, error) in
-            if error == nil {
-                if let place = places {
-                    print(place)
-                }
+            if let place = places?.first {
+                print(self.appState.locationObject.latitude)
             }
         }
     }

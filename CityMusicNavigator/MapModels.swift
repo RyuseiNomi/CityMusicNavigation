@@ -6,25 +6,36 @@
 //
 
 import MapKit
+import CoreLocation
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    public var appState: AppState
+    public var appState: AppState = AppState()
+    private let manager = CLLocationManager()
+    @Published var region = MKCoordinateRegion()
     
-    init(appState: AppState) {
-        self.appState = appState
+    override init() {
         super.init()
-        self.appState.mapObject.manager.delegate = self
-        self.appState.mapObject.manager.requestWhenInUseAuthorization()
-        self.appState.mapObject.manager.desiredAccuracy = kCLLocationAccuracyBest
-        self.appState.mapObject.manager.distanceFilter = 3.0
-        self.appState.mapObject.manager.startUpdatingLocation()
+    }
+    
+    func setUp(appState: AppState) {
+        self.appState = appState
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = 3.0
+        print("a")
+        manager.startUpdatingLocation()
+        print("d")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("b")
         locations.last.map {
             self.appState.locationObject.latitude = $0.coordinate.latitude
             self.appState.locationObject.longitude = $0.coordinate.longitude
+            print("c")
+            print(self.appState.locationObject.latitude)
             let center = CLLocationCoordinate2D(
                 latitude: self.appState.locationObject.latitude,
                 longitude: self.appState.locationObject.longitude

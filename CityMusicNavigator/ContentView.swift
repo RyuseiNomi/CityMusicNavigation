@@ -12,22 +12,25 @@ import MediaPlayer
 struct ContentView: View {
     
     @ObservedObject var musicManager = MusicManager()
+    @ObservedObject var manager = LocationManager()
     @State var trackingMode = MapUserTrackingMode.follow
-    @State private var region = MKCoordinateRegion()
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
         VStack {
             Map(
-                coordinateRegion: $region,
+                coordinateRegion: $manager.region,
                 showsUserLocation: true,
                 userTrackingMode: $trackingMode
             ).edgesIgnoringSafeArea(.bottom)
-            Button(action: {
+            .onAppear() {
+                manager.setUp(appState: appState)
                 let geoLocationInteractor = GeoLocationInteractor(appState: self.appState)
                 geoLocationInteractor.getLocation()
-            }) {
-               Text("位置情報の取得を開始")
+            }
+            HStack {
+                Text("現在地 : ")
+                Text(self.appState.locationObject.prefecture)
             }
             Grid {
                 GridRow {
@@ -48,10 +51,6 @@ struct ContentView: View {
             }
             .frame(maxWidth: .infinity)
         }
-    }
-    
-    private func getRegion() {
-        self.region = self.appState.mapObject.region
     }
 }
 

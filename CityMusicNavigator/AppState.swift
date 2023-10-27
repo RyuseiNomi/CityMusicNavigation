@@ -13,10 +13,12 @@ class AppState: ObservableObject {
     struct LocationObject {
         var latitude: CLLocationDegrees = 0.0
         var longitude: CLLocationDegrees = 0.0
+        var prefecture: String = ""
+        var city: String = ""
+        var town: String = ""
     }
     
     struct MapObject {
-        var manager: CLLocationManager = CLLocationManager()
         var region: MKCoordinateRegion = MKCoordinateRegion()
     }
     
