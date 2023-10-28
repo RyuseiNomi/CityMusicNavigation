@@ -24,6 +24,8 @@ struct AlbumPickView: View {
                 }
                 .onTapGesture(count: 1) {
                     self.appState.musicObject.album = album
+                    // 既にプレイリストが選択されていた場合に、プレイリストの曲が再生されるのを防ぐため
+                    self.appState.musicObject.playList = nil
                     self.appState.sheetObject.isShowAlbumSheet.toggle()
                 }
             }

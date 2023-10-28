@@ -47,7 +47,6 @@ class GeoLocationInteractor {
         
             // 町が更新されている場合には次の音楽をかける
             if ( subLocality != self.appState.locationObject.town ) {
-                // TODO: 次の音楽に skip する
                 // 新しい街の情報を更新する
                 self.appState.locationObject.prefecture = place.administrativeArea!
                 self.appState.locationObject.city = place.locality!
