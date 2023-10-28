@@ -22,6 +22,7 @@ class MusicInteractor: NSObject, ObservableObject {
             default: break
             }
         }
+        musicPlayer.repeatMode = .one
     }
     
     public func fetchAlbums(appState: AppState) {
@@ -29,6 +30,14 @@ class MusicInteractor: NSObject, ObservableObject {
         query.groupingType = MPMediaGrouping.album
         if let collections = query.collections {
             appState.musicObject.albums = collections
+        }
+    }
+    
+    public func fetchPlayLists(appState: AppState) {
+        let query = MPMediaQuery.playlists()
+        query.groupingType = MPMediaGrouping.playlist
+        if let playLists = query.collections {
+            appState.musicObject.playLists = playLists
         }
     }
 }

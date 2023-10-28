@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F3EB8F42AECF79600D82D6C /* PlayListPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3EB8F32AECF79600D82D6C /* PlayListPickView.swift */; };
 		8F72EBC62AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBC52AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift */; };
 		8F72EBC82AE7DF0A007E2D99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F72EBC72AE7DF0A007E2D99 /* ContentView.swift */; };
 		8F72EBCA2AE7DF0B007E2D99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F72EBC92AE7DF0B007E2D99 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F3EB8F32AECF79600D82D6C /* PlayListPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListPickView.swift; sourceTree = "<group>"; };
 		8F72EBC22AE7DF0A007E2D99 /* CityMusicNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityMusicNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F72EBC52AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMusicNavigatorApp.swift; sourceTree = "<group>"; };
 		8F72EBC72AE7DF0A007E2D99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				8FECBBCD2AEA3AC80042BB32 /* GeoLocationInteractor.swift */,
 				8FECBBCF2AEA8BF90042BB32 /* AppState.swift */,
 				8FA2FF9E2AECA6C100C557EF /* AlbumPickView.swift */,
+				8F3EB8F32AECF79600D82D6C /* PlayListPickView.swift */,
 			);
 			path = CityMusicNavigator;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				8F72EBC62AE7DF0A007E2D99 /* CityMusicNavigatorApp.swift in Sources */,
 				8FECBBD02AEA8BF90042BB32 /* AppState.swift in Sources */,
 				8FA2FF992AEBCA8D00C557EF /* MusicInteractor.swift in Sources */,
+				8F3EB8F42AECF79600D82D6C /* PlayListPickView.swift in Sources */,
 				8FECBBCE2AEA3AC80042BB32 /* GeoLocationInteractor.swift in Sources */,
 				8FA2FF9D2AEBCB2B00C557EF /* LocationInteractor.swift in Sources */,
 			);

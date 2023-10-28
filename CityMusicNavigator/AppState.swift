@@ -20,12 +20,16 @@ class AppState: ObservableObject {
     }
     
     struct MusicObject {
-        var album: MPMediaItemCollection = .init(items: [MPMediaItem()])
+        // NOTE: 曲を再生する際にアルバムかプレイリストどちらが選択されているか確認するため
+        var album: MPMediaItemCollection? = nil
         var albums: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
+        var playList: MPMediaItemCollection? = nil
+        var playLists: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
     }
     
     struct SheetObject {
         var isShowAlbumSheet: Bool = false
+        var isShowPlayListSheet: Bool = false
     }
     
     @Published public var locationObject = LocationObject()

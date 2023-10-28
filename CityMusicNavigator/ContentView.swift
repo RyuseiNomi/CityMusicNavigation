@@ -35,7 +35,7 @@ struct ContentView: View {
             .onChange(of: self.appState.locationObject.town) {
                 $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
             }
-            Button("アルバムを選択") {
+            Button("アルバムから選択") {
                 Task {
                     musicInteractor.fetchAlbums(appState: self.appState)
                     self.appState.sheetObject.isShowAlbumSheet.toggle()
@@ -43,6 +43,16 @@ struct ContentView: View {
             }
             .sheet(isPresented: self.$appState.sheetObject.isShowAlbumSheet) {
                 AlbumPickView()
+                    .presentationContentInteraction(.scrolls)
+            }
+            Button("プレイリストから選択") {
+                Task {
+                    musicInteractor.fetchPlayLists(appState: self.appState)
+                    self.appState.sheetObject.isShowPlayListSheet.toggle()
+                }
+            }
+            .sheet(isPresented: self.$appState.sheetObject.isShowPlayListSheet) {
+                PlayListPickView()
                     .presentationContentInteraction(.scrolls)
             }
             Grid {
@@ -54,9 +64,15 @@ struct ContentView: View {
                     }
                     Button("再生") {
                         Task {
-                            let album = self.appState.musicObject.album
-                            $musicInteractor.musicPlayer.wrappedValue.setQueue(with: album)
-                            $musicInteractor.musicPlayer.wrappedValue.play()
+                            if let album = self.appState.musicObject.album {
+                                $musicInteractor.musicPlayer.wrappedValue.setQueue(with: album)
+                                $musicInteractor.musicPlayer.wrappedValue.play()
+                                return
+                            }
+                            if let playList = self.appState.musicObject.playList {
+                                $musicInteractor.musicPlayer.wrappedValue.setQueue(with: playList)
+                                $musicInteractor.musicPlayer.wrappedValue.play()
+                            }
                         }
                     }
                     Button("一時停止") {
