@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A81586EA-92DA-45D1-8421-FE307E6DCA1C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDB000C4-640A-4B18-89BC-9137914BB0B8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CityMusicNavigator/MusicInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "fetchPlayLists(appState:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EDB000C4-640A-4B18-89BC-9137914BB0B8 - 37e2406d6cf0a8af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CityMusicNavigator.MusicInteractor.fetchPlayLists(appState: CityMusicNavigator.AppState) -&gt; ()"
+                  moduleName = "CityMusicNavigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonto/dev/CityMusicNavigator/CityMusicNavigator/MusicInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "EDB000C4-640A-4B18-89BC-9137914BB0B8 - 37e2406d6cf0a8af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CityMusicNavigator.MusicInteractor.fetchPlayLists(appState: CityMusicNavigator.AppState) -&gt; ()"
+                  moduleName = "CityMusicNavigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tonto/dev/CityMusicNavigator/CityMusicNavigator/MusicInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
