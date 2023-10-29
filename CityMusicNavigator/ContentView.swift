@@ -50,8 +50,8 @@ struct ContentView: View {
                 
                 // 再生中の曲の情報
                 VStack {
-                    if let albumSong = self.appState.musicObject.album?.items.first {
-                        if let artwork = albumSong.artwork {
+                    if (self.appState.musicObject.currentSong != nil) {
+                        if let artwork = self.appState.musicObject.currentSong?.artwork {
                             Image(uiImage: artwork.image(at: CGSize(width: 30, height: 30))!)
                         } else {
                             Image("jacket")
@@ -60,21 +60,8 @@ struct ContentView: View {
                                 .padding(.bottom, 0)
                             
                         }
-                        Text(albumSong.title!)
-                    }
-                    if let playlistSong = self.appState.musicObject.playList?.items.first {
-                        if let artwork = playlistSong.artwork {
-                            Image(uiImage: artwork.image(at: CGSize(width: 30, height: 30))!)
-                        } else {
-                            Image("jacket")
-                                .resizable()
-                                .frame(maxWidth: 150, maxHeight: 150)
-                                .padding(.bottom, 0)
-                            
-                        }
-                        Text(playlistSong.title!)
-                    }
-                    if ((self.appState.musicObject.album?.items.first) == nil) && ((self.appState.musicObject.playList?.items.first) == nil) {
+                        Text((self.appState.musicObject.currentSong?.title)!)
+                    } else {
                         Image("jacket")
                             .resizable()
                             .frame(maxWidth: 150, maxHeight: 150)
@@ -86,11 +73,12 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 2)
                 
+                // 音楽操作パネル
                 Grid {
                     GridRow {
                         Button(action: {
                             $musicInteractor.musicPlayer.wrappedValue.skipToPreviousItem()
-                            
+                            self.appState.musicObject.currentSong = musicInteractor.musicPlayer.nowPlayingItem
                         }, label: {
                             Image(systemName: "backward.fill")
                                 .resizable()
@@ -115,6 +103,7 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {
                             $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
+                            self.appState.musicObject.currentSong = musicInteractor.musicPlayer.nowPlayingItem
                             
                         }, label: {
                             Image(systemName: "forward.fill")

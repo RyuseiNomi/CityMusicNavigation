@@ -33,6 +33,7 @@ struct PlayListPickView: View {
                 }
                 .onTapGesture(count: 1) {
                     self.appState.musicObject.playList = playList
+                    self.appState.musicObject.currentSong = playList.items.first
                     // 既にアルバムが選択されていた場合に、アルバムの曲が再生されるのを防ぐため
                     self.appState.musicObject.album = nil
                     self.appState.sheetObject.isShowPlayListSheet.toggle()

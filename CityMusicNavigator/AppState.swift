@@ -25,6 +25,7 @@ class AppState: ObservableObject {
         var albums: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
         var playList: MPMediaItemCollection? = nil
         var playLists: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
+        var currentSong: MPMediaItem? = nil
     }
     
     struct SheetObject {
