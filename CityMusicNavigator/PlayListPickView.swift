@@ -20,6 +20,12 @@ struct PlayListPickView: View {
                 VStack {
                     if let artwork = playList.items.first?.artwork {
                         Image(uiImage: artwork.image(at: CGSize(width: 30, height: 30))!)
+                    } else {
+                        Image("jacket")
+                            .resizable()
+                            .frame(maxWidth: 100, maxHeight: 100)
+                            .padding(.bottom, 0)
+                        
                     }
                     if let representativeItem = playList.representativeItem {
                         Text(representativeItem.albumTitle!)

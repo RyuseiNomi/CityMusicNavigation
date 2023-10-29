@@ -19,6 +19,12 @@ struct AlbumPickView: View {
                 VStack {
                     if let artwork = album.items.first?.artwork {
                         Image(uiImage: artwork.image(at: CGSize(width: 30, height: 30))!)
+                    } else {
+                        Image("jacket")
+                            .resizable()
+                            .frame(maxWidth: 100, maxHeight: 100)
+                            .padding(.bottom, 0)
+                        
                     }
                     Text("\(album.representativeItem?.albumTitle ?? "No Title")")
                 }
