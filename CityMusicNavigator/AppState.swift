@@ -23,8 +23,9 @@ class AppState: ObservableObject {
         // NOTE: 曲を再生する際にアルバムかプレイリストどちらが選択されているか確認するため
         var album: MPMediaItemCollection? = nil
         var albums: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
-        var playList: MPMediaItemCollection? = nil
-        var playLists: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
+        var playList: MPMediaPlaylist? = nil
+        var playLists: [MPMediaPlaylist] = [.init(items: [MPMediaItem()])]
+        var currentSong: MPMediaItem? = nil
     }
     
     struct SheetObject {
