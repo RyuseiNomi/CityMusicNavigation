@@ -24,7 +24,7 @@ struct ContentView: View {
                         coordinateRegion: $manager.region,
                         showsUserLocation: true,
                         userTrackingMode: $trackingMode
-                    ).edgesIgnoringSafeArea(.bottom)
+                    )
                         .onAppear() {
                             manager.setUp(appState: appState)
                         }
@@ -47,6 +47,7 @@ struct ContentView: View {
                         self.appState.musicObject.currentSong = self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem
                     }
                 }
+                .padding(.top, 10)
                 
                 // 再生中の曲の情報
                 VStack {
@@ -66,9 +67,10 @@ struct ContentView: View {
                             .resizable()
                             .frame(maxWidth: 150, maxHeight: 150)
                             .padding(.bottom, 0)
-                        Text("---")
+                        Text("アルバムもしくはプレイリストから\n曲を選択してください")
                             .padding(.top, 10)
                             .padding(.bottom, 0)
+                            .multilineTextAlignment(.center)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 2)
