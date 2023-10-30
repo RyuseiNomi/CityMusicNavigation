@@ -14,26 +14,27 @@ struct AlbumPickView: View {
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(appState.musicObject.albums, id: \.self) { album in
-                VStack {
-                    if let artwork = album.items.first?.artwork {
-                        Image(uiImage: artwork.image(at: CGSize(width: 30, height: 30))!)
-                    } else {
-                        Image("jacket")
-                            .resizable()
-                            .frame(maxWidth: 100, maxHeight: 100)
-                            .padding(.bottom, 0)
-                        
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(appState.musicObject.albums, id: \.self) { album in
+                    VStack {
+                        if let artwork = album.items.first?.artwork {
+                            Image(uiImage: artwork.image(at: CGSize(width: 30, height: 30))!)
+                        } else {
+                            Image("jacket")
+                                .resizable()
+                                .frame(maxWidth: 100, maxHeight: 100)
+                                .padding(.bottom, 0)
+                        }
+                        Text("\(album.representativeItem?.albumTitle ?? "No Title")")
                     }
-                    Text("\(album.representativeItem?.albumTitle ?? "No Title")")
-                }
-                .onTapGesture(count: 1) {
-                    self.appState.musicObject.album = album
-                    self.appState.musicObject.currentSong = album.items.first
-                    // 既にプレイリストが選択されていた場合に、プレイリストの曲が再生されるのを防ぐため
-                    self.appState.musicObject.playList = nil
-                    self.appState.sheetObject.isShowAlbumSheet.toggle()
+                    .onTapGesture(count: 1) {
+                        self.appState.musicObject.album = album
+                        self.appState.musicObject.currentSong = album.items.first
+                        // 既にプレイリストが選択されていた場合に、プレイリストの曲が再生されるのを防ぐため
+                        self.appState.musicObject.playList = nil
+                        self.appState.sheetObject.isShowAlbumSheet.toggle()
+                    }
                 }
             }
         }
