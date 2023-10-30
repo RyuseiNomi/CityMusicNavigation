@@ -20,12 +20,16 @@ class AppState: ObservableObject {
     }
     
     struct MusicObject {
+        var musicPlayer: MPMusicPlayerApplicationController = MPMusicPlayerApplicationController.applicationQueuePlayer
         // NOTE: 曲を再生する際にアルバムかプレイリストどちらが選択されているか確認するため
         var album: MPMediaItemCollection? = nil
         var albums: [MPMediaItemCollection] = [.init(items: [MPMediaItem()])]
         var playList: MPMediaPlaylist? = nil
         var playLists: [MPMediaPlaylist] = [.init(items: [MPMediaItem()])]
         var currentSong: MPMediaItem? = nil
+        var pauseTime: Double = 0.0
+        var isPlayingMusic: Bool = false
+        var musicInteractor: MusicInteractor = MusicInteractor()
     }
     
     struct SheetObject {
