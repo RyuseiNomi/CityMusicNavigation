@@ -27,9 +27,7 @@ struct PlayListPickView: View {
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .padding(.bottom, 0)
                         }
-                        if let representativeItem = playList.representativeItem {
-                            Text(representativeItem.albumTitle!)
-                        }
+                        Text(playList.name!)
                     }
                     .onTapGesture(count: 1) {
                         self.appState.musicObject.playList = playList

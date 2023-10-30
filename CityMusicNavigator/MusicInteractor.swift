@@ -37,7 +37,7 @@ class MusicInteractor: NSObject, ObservableObject {
         let query = MPMediaQuery.playlists()
         query.groupingType = MPMediaGrouping.playlist
         if let playLists = query.collections {
-            appState.musicObject.playLists = playLists
+            appState.musicObject.playLists = playLists as! [MPMediaPlaylist]
         }
     }
 }
