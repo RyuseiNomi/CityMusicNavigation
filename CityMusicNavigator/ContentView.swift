@@ -32,16 +32,15 @@ struct ContentView: View {
                     
                     HStack {
                         Text(self.appState.locationObject.prefecture)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("textColor"))
                         Text(self.appState.locationObject.city)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("textColor"))
                         Text(self.appState.locationObject.town)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("textColor"))
                     }
                     .font(.subheadline)
                     .frame(maxWidth: geometry.size.width / 2, maxHeight: 45)
-                    .background(Color.gray)
-                    .border(Color.black, width: 5)
+                    .background(Color("buttonColor"))
                     .onChange(of: self.appState.locationObject.town) {
                         self.appState.musicObject.musicInteractor.musicPlayer.skipToNextItem()
                         self.appState.musicObject.currentSong = self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem
@@ -85,6 +84,7 @@ struct ContentView: View {
                             Image(systemName: "backward.fill")
                                 .resizable()
                                 .frame(maxWidth: 30, maxHeight: 30)
+                                .foregroundColor(Color("buttonColor"))
                         })
                         Spacer()
                         if self.appState.musicObject.isPlayingMusic {
@@ -96,6 +96,8 @@ struct ContentView: View {
                                 Image(systemName: "pause.circle.fill")
                                     .resizable()
                                     .frame(maxWidth: 70, maxHeight: 70)
+                                    .foregroundColor(Color("buttonColor"))
+
                             })
                         } else {
                             Button(action: {
@@ -122,6 +124,7 @@ struct ContentView: View {
                                 Image(systemName: "play.circle.fill")
                                     .resizable()
                                     .frame(maxWidth: 70, maxHeight: 70)
+                                    .foregroundColor(Color("buttonColor"))
                             })
                         }
                         Spacer()
@@ -133,6 +136,7 @@ struct ContentView: View {
                             Image(systemName: "forward.fill")
                                 .resizable()
                                 .frame(maxWidth: 30, maxHeight: 30)
+                                    .foregroundColor(Color("buttonColor"))
                         })
                     }
                 }
@@ -149,12 +153,19 @@ struct ContentView: View {
                             Image(systemName: "rectangle.stack.fill")
                                 .resizable()
                                 .frame(maxWidth: 50, maxHeight: 50)
+                                .foregroundColor(Color("textColor"))
                             Text("アルバム")
                                 .bold()
                                 .font(.title2)
+                                .foregroundColor(Color("textColor"))
                             Text("から選択")
+                                .foregroundColor(Color("textColor"))
+
                         }
                     })
+                    .padding(20)
+                    .background(Color("buttonColor"))
+                    .cornerRadius(30)
                     .sheet(isPresented: self.$appState.sheetObject.isShowAlbumSheet) {
                         AlbumPickView()
                             .presentationContentInteraction(.scrolls)
@@ -168,12 +179,19 @@ struct ContentView: View {
                             Image(systemName: "music.note.list")
                                 .resizable()
                                 .frame(maxWidth: 50, maxHeight: 50)
+                                .foregroundColor(Color("textColor"))
                             Text("プレイリスト")
                                 .bold()
                                 .font(.title3)
+                                .foregroundColor(Color("textColor"))
                             Text("から選択")
+                                .foregroundColor(Color("textColor"))
+
                         }
                     })
+                    .padding(10)
+                    .background(Color("buttonColor"))
+                    .cornerRadius(30)
                     .sheet(isPresented: self.$appState.sheetObject.isShowPlayListSheet) {
                         PlayListPickView()
                             .presentationContentInteraction(.scrolls)
@@ -182,6 +200,7 @@ struct ContentView: View {
                 .padding(.horizontal, 50)
                 .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 6)
             }
+            .background(Color("backgroundColor"))
         }
     }
 }
