@@ -15,6 +15,8 @@ struct ContentView: View {
     @ObservedObject var manager = LocationInteractor()
     @State var trackingMode = MapUserTrackingMode.follow
     @EnvironmentObject public var appState: AppState
+    @State var pauseTime: Double = 0.0
+    @State var isPlayingMusic: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -85,21 +87,43 @@ struct ContentView: View {
                                 .frame(maxWidth: 30, maxHeight: 30)
                         })
                         Spacer()
-                        Button(action: {
-                            if let album = self.appState.musicObject.album {
-                                $musicInteractor.musicPlayer.wrappedValue.setQueue(with: album)
-                                $musicInteractor.musicPlayer.wrappedValue.play()
-                                return
-                            }
-                            if let playList = self.appState.musicObject.playList {
-                                $musicInteractor.musicPlayer.wrappedValue.setQueue(with: playList)
-                                $musicInteractor.musicPlayer.wrappedValue.play()
-                            }
-                        }, label: {
-                            Image(systemName: "play.circle.fill")
-                                .resizable()
-                                .frame(maxWidth: 70, maxHeight: 70)
-                        })
+                        if self.isPlayingMusic {
+                            Button(action: {
+                                $musicInteractor.musicPlayer.wrappedValue.pause()
+                                isPlayingMusic.toggle()
+                                self.pauseTime = $musicInteractor.musicPlayer.wrappedValue.currentPlaybackTime
+                            }, label: {
+                                Image(systemName: "pause.circle.fill")
+                                    .resizable()
+                                    .frame(maxWidth: 70, maxHeight: 70)
+                            })
+                        } else {
+                            Button(action: {
+                                if let album = self.appState.musicObject.album {
+                                    if $musicInteractor.musicPlayer.wrappedValue.nowPlayingItem == nil {
+                                        $musicInteractor.musicPlayer.wrappedValue.setQueue(with: album)
+                                    } else {
+                                        $musicInteractor.musicPlayer.wrappedValue.currentPlaybackTime = pauseTime
+                                    }
+                                    $musicInteractor.musicPlayer.wrappedValue.play()
+                                    isPlayingMusic.toggle()
+                                    return
+                                }
+                                if let playList = self.appState.musicObject.playList {
+                                    if $musicInteractor.musicPlayer.wrappedValue.nowPlayingItem == nil {
+                                        $musicInteractor.musicPlayer.wrappedValue.setQueue(with: playList)
+                                    } else {
+                                        $musicInteractor.musicPlayer.wrappedValue.currentPlaybackTime = pauseTime
+                                    }
+                                    $musicInteractor.musicPlayer.wrappedValue.play()
+                                    isPlayingMusic.toggle()
+                                }
+                            }, label: {
+                                Image(systemName: "play.circle.fill")
+                                    .resizable()
+                                    .frame(maxWidth: 70, maxHeight: 70)
+                            })
+                        }
                         Spacer()
                         Button(action: {
                             $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
