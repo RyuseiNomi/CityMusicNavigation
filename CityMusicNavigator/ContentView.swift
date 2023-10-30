@@ -145,16 +145,14 @@ struct ContentView: View {
                         self.appState.musicObject.musicInteractor.fetchAlbums(appState: self.appState)
                         self.appState.sheetObject.isShowAlbumSheet.toggle()
                     }, label: {
-                        HStack {
+                        VStack {
                             Image(systemName: "rectangle.stack.fill")
                                 .resizable()
-                                .frame(maxWidth: 40, maxHeight: 40)
-                            VStack {
-                                Text("アルバム")
-                                    .bold()
-                                    .font(.title2)
-                                Text("から選択")
-                            }
+                                .frame(maxWidth: 50, maxHeight: 50)
+                            Text("アルバム")
+                                .bold()
+                                .font(.title2)
+                            Text("から選択")
                         }
                     })
                     .sheet(isPresented: self.$appState.sheetObject.isShowAlbumSheet) {
@@ -166,16 +164,14 @@ struct ContentView: View {
                         self.appState.musicObject.musicInteractor.fetchPlayLists(appState: self.appState)
                         self.appState.sheetObject.isShowPlayListSheet.toggle()
                     }, label: {
-                        HStack {
+                        VStack {
                             Image(systemName: "music.note.list")
                                 .resizable()
-                                .frame(maxWidth: 40, maxHeight: 40)
-                            VStack {
-                                Text("プレイリスト")
-                                    .bold()
-                                    .font(.title3)
-                                Text("から選択")
-                            }
+                                .frame(maxWidth: 50, maxHeight: 50)
+                            Text("プレイリスト")
+                                .bold()
+                                .font(.title3)
+                            Text("から選択")
                         }
                     })
                     .sheet(isPresented: self.$appState.sheetObject.isShowPlayListSheet) {
@@ -183,7 +179,7 @@ struct ContentView: View {
                             .presentationContentInteraction(.scrolls)
                     }
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 50)
                 .frame(maxWidth: .infinity, maxHeight: geometry.size.height / 6)
             }
         }
