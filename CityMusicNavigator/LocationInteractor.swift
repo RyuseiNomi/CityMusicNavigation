@@ -22,10 +22,28 @@ class LocationInteractor: NSObject, ObservableObject, CLLocationManagerDelegate 
     func setUp(appState: AppState) {
         self.appState = appState
         manager.delegate = self
-        manager.requestAlwaysAuthorization()
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 3.0
-        manager.startUpdatingLocation()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = manager.authorizationStatus
+        
+        switch status {
+        case .authorizedAlways:
+            print("hoge")
+            manager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            manager.requestAlwaysAuthorization()
+        case .denied:
+            break
+        case .restricted:
+            break
+        default:
+            break
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

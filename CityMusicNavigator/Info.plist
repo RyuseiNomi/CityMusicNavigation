@@ -4,5 +4,9 @@
 <dict>
 	<key>kTCCServiceMediaLibrary</key>
 	<string></string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>音楽の操作に利用します。「Appの使用中は許可」を選択してください</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>音楽の操作に利用します。「常に許可」を選択してください</string>
 </dict>
 </plist>

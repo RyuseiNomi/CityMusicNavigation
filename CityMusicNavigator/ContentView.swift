@@ -44,6 +44,7 @@ struct ContentView: View {
                     .border(Color.black, width: 5)
                     .onChange(of: self.appState.locationObject.town) {
                         self.appState.musicObject.musicInteractor.musicPlayer.skipToNextItem()
+                        self.appState.musicObject.currentSong = self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem
                     }
                 }
                 
