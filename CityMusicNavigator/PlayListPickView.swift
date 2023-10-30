@@ -32,8 +32,15 @@ struct PlayListPickView: View {
                     .onTapGesture(count: 1) {
                         self.appState.musicObject.playList = playList
                         self.appState.musicObject.currentSong = playList.items.first
-                        // 既にアルバムが選択されていた場合に、アルバムの曲が再生されるのを防ぐため
+                        // 既にアルバムが選択されていた場合に、アルバムの曲が再生されるのを防ぐために nil にしている
                         self.appState.musicObject.album = nil
+                        // 再生中の曲と再生位置をリセットする　
+                        self.appState.musicObject.isPlayingMusic = false
+                        self.appState.musicObject.pauseTime = 0.0
+                        self.appState.musicObject.album = nil
+                        self.appState.musicObject.musicPlayer.stop()
+                        self.appState.musicObject.musicInteractor.musicPlayer.setQueue(with: playList)
+                        
                         self.appState.sheetObject.isShowPlayListSheet.toggle()
                     }
                 }

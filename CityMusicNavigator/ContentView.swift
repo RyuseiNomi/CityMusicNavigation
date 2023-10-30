@@ -11,12 +11,9 @@ import MediaPlayer
 
 struct ContentView: View {
     
-    @ObservedObject var musicInteractor = MusicInteractor()
     @ObservedObject var manager = LocationInteractor()
     @State var trackingMode = MapUserTrackingMode.follow
     @EnvironmentObject public var appState: AppState
-    @State var pauseTime: Double = 0.0
-    @State var isPlayingMusic: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -46,7 +43,7 @@ struct ContentView: View {
                     .background(Color.gray)
                     .border(Color.black, width: 5)
                     .onChange(of: self.appState.locationObject.town) {
-                        $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
+                        self.appState.musicObject.musicInteractor.musicPlayer.skipToNextItem()
                     }
                 }
                 
@@ -79,19 +76,19 @@ struct ContentView: View {
                 Grid {
                     GridRow {
                         Button(action: {
-                            $musicInteractor.musicPlayer.wrappedValue.skipToPreviousItem()
-                            self.appState.musicObject.currentSong = musicInteractor.musicPlayer.nowPlayingItem
+                            self.appState.musicObject.musicInteractor.musicPlayer.skipToPreviousItem()
+                            self.appState.musicObject.currentSong = self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem
                         }, label: {
                             Image(systemName: "backward.fill")
                                 .resizable()
                                 .frame(maxWidth: 30, maxHeight: 30)
                         })
                         Spacer()
-                        if self.isPlayingMusic {
+                        if self.appState.musicObject.isPlayingMusic {
                             Button(action: {
-                                $musicInteractor.musicPlayer.wrappedValue.pause()
-                                isPlayingMusic.toggle()
-                                self.pauseTime = $musicInteractor.musicPlayer.wrappedValue.currentPlaybackTime
+                                self.appState.musicObject.musicInteractor.musicPlayer.pause()
+                                self.appState.musicObject.isPlayingMusic.toggle()
+                                self.appState.musicObject.pauseTime = self.appState.musicObject.musicInteractor.musicPlayer.currentPlaybackTime
                             }, label: {
                                 Image(systemName: "pause.circle.fill")
                                     .resizable()
@@ -100,23 +97,23 @@ struct ContentView: View {
                         } else {
                             Button(action: {
                                 if let album = self.appState.musicObject.album {
-                                    if $musicInteractor.musicPlayer.wrappedValue.nowPlayingItem == nil {
-                                        $musicInteractor.musicPlayer.wrappedValue.setQueue(with: album)
+                                    if self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem == nil {
+                                        self.appState.musicObject.musicInteractor.musicPlayer.setQueue(with: album)
                                     } else {
-                                        $musicInteractor.musicPlayer.wrappedValue.currentPlaybackTime = pauseTime
+                                        self.appState.musicObject.musicInteractor.musicPlayer.currentPlaybackTime = self.appState.musicObject.pauseTime
                                     }
-                                    $musicInteractor.musicPlayer.wrappedValue.play()
-                                    isPlayingMusic.toggle()
+                                    self.appState.musicObject.musicInteractor.musicPlayer.play()
+                                    self.appState.musicObject.isPlayingMusic.toggle()
                                     return
                                 }
                                 if let playList = self.appState.musicObject.playList {
-                                    if $musicInteractor.musicPlayer.wrappedValue.nowPlayingItem == nil {
-                                        $musicInteractor.musicPlayer.wrappedValue.setQueue(with: playList)
+                                    if self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem == nil {
+                                        self.appState.musicObject.musicInteractor.musicPlayer.setQueue(with: playList)
                                     } else {
-                                        $musicInteractor.musicPlayer.wrappedValue.currentPlaybackTime = pauseTime
+                                        self.appState.musicObject.musicInteractor.musicPlayer.currentPlaybackTime = self.appState.musicObject.pauseTime
                                     }
-                                    $musicInteractor.musicPlayer.wrappedValue.play()
-                                    isPlayingMusic.toggle()
+                                    self.appState.musicObject.musicInteractor.musicPlayer.play()
+                                    self.appState.musicObject.isPlayingMusic.toggle()
                                 }
                             }, label: {
                                 Image(systemName: "play.circle.fill")
@@ -126,8 +123,8 @@ struct ContentView: View {
                         }
                         Spacer()
                         Button(action: {
-                            $musicInteractor.musicPlayer.wrappedValue.skipToNextItem()
-                            self.appState.musicObject.currentSong = musicInteractor.musicPlayer.nowPlayingItem
+                            self.appState.musicObject.musicInteractor.musicPlayer.skipToNextItem()
+                            self.appState.musicObject.currentSong = self.appState.musicObject.musicInteractor.musicPlayer.nowPlayingItem
                             
                         }, label: {
                             Image(systemName: "forward.fill")
@@ -142,7 +139,7 @@ struct ContentView: View {
                 // アルバム or プレイリスト選択
                 HStack {
                     Button(action: {
-                        musicInteractor.fetchAlbums(appState: self.appState)
+                        self.appState.musicObject.musicInteractor.fetchAlbums(appState: self.appState)
                         self.appState.sheetObject.isShowAlbumSheet.toggle()
                     }, label: {
                         HStack {
@@ -163,7 +160,7 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button(action: {
-                        musicInteractor.fetchPlayLists(appState: self.appState)
+                        self.appState.musicObject.musicInteractor.fetchPlayLists(appState: self.appState)
                         self.appState.sheetObject.isShowPlayListSheet.toggle()
                     }, label: {
                         HStack {

@@ -33,6 +33,13 @@ struct AlbumPickView: View {
                         self.appState.musicObject.currentSong = album.items.first
                         // 既にプレイリストが選択されていた場合に、プレイリストの曲が再生されるのを防ぐため
                         self.appState.musicObject.playList = nil
+                        // 再生中の曲と再生位置をリセットする　
+                        self.appState.musicObject.isPlayingMusic = false
+                        self.appState.musicObject.pauseTime = 0.0
+                        self.appState.musicObject.playList = nil
+                        self.appState.musicObject.musicPlayer.stop()
+                        self.appState.musicObject.musicInteractor.musicPlayer.setQueue(with: album)
+                        
                         self.appState.sheetObject.isShowAlbumSheet.toggle()
                     }
                 }
