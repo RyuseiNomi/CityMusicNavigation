@@ -41,6 +41,7 @@ class AppState: ObservableObject {
         
         // 一時停止に関わる情報
         var pauseTime: Double = 0.0
+        var sampleSongPauseTime: TimeInterval = 0.0
         var isPlayingMusic: Bool = false
         
         // 音楽に関する操作をするクラス

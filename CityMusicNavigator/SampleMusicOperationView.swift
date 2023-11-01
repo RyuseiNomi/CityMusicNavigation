@@ -49,16 +49,21 @@ struct SampleMusicOperationView: View {
                         if self.appState.musicObject.isPlayingMusic {
                             Button(action: {
                                 self.appState.musicObject.currentSampleSong?.pause()
+                                self.appState.musicObject.isPlayingMusic.toggle()
+                                self.appState.musicObject.sampleSongPauseTime = self.appState.musicObject.currentSampleSong!.currentTime
                             }, label: {
                                 Image(systemName: "pause.circle.fill")
                                     .resizable()
                                     .frame(maxWidth: 70, maxHeight: 70)
                                     .foregroundColor(Color("buttonColor"))
-                                
                             })
                         } else {
                             Button(action: {
+                                if self.appState.musicObject.sampleSongPauseTime != 0.0 {
+                                    self.appState.musicObject.currentSampleSong?.currentTime = self.appState.musicObject.sampleSongPauseTime
+                                }
                                 self.appState.musicObject.currentSampleSong?.play()
+                                self.appState.musicObject.isPlayingMusic.toggle()
                             }, label: {
                                 Image(systemName: "play.circle.fill")
                                     .resizable()
